@@ -148,7 +148,8 @@ def _fix_keycloak_init(svc_name, compose_services):
 class BitnamiWorkarounds:
     """Auto-fix Bitnami Redis, PostgreSQL, and Keycloak for compose."""
 
-    priority = 150  # after converters, before flatten-internal-urls (200)
+    name = "bitnami"
+    priority = 1500  # after converters, before flatten-internal-urls (2000)
 
     def transform(self, compose_services, caddy_entries, ctx):
         user_overrides = ctx.config.get("overrides", {})
