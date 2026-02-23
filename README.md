@@ -67,6 +67,19 @@ Verify it loaded: `Loaded transforms: BitnamiWorkarounds` appears on stderr.
 
 150 (after converters, before flatten-internal-urls at 200).
 
+## Code quality
+
+*Last updated: 2026-02-23*
+
+| Metric | Value |
+|--------|-------|
+| Pylint | 10.00/10 |
+| Pyflakes | clean |
+| Radon MI | 62.14 (A) |
+| Radon avg CC | 4.1 (A) |
+
+No C-rated functions.
+
 ## License
 
 Public domain.

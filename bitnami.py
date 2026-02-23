@@ -145,13 +145,14 @@ def _fix_keycloak_init(svc_name, compose_services):
 # Transform entry point
 # ---------------------------------------------------------------------------
 
-class BitnamiWorkarounds:
+class BitnamiWorkarounds:  # pylint: disable=too-few-public-methods  # contract: one class, one method
     """Auto-fix Bitnami Redis, PostgreSQL, and Keycloak for compose."""
 
     name = "bitnami"
     priority = 1500  # after converters, before flatten-internal-urls (2000)
 
-    def transform(self, compose_services, ingress_entries, ctx):
+    def transform(self, compose_services, ingress_entries, ctx):  # pylint: disable=unused-argument  # Transform contract signature
+        """Apply Bitnami-specific workarounds to compose services."""
         user_overrides = ctx.config.get("overrides", {})
 
         for svc_name in list(compose_services):
