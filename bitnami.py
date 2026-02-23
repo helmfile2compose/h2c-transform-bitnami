@@ -151,7 +151,7 @@ class BitnamiWorkarounds:
     name = "bitnami"
     priority = 1500  # after converters, before flatten-internal-urls (2000)
 
-    def transform(self, compose_services, caddy_entries, ctx):
+    def transform(self, compose_services, ingress_entries, ctx):
         user_overrides = ctx.config.get("overrides", {})
 
         for svc_name in list(compose_services):
