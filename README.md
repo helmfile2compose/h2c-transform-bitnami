@@ -4,11 +4,11 @@
 ![python 3](https://img.shields.io/badge/python-3-3776AB)
 ![heresy: 0/10](https://img.shields.io/badge/heresy-0%2F10-blueviolet)
 
-h2c transform that detects Bitnami Redis, PostgreSQL, and Keycloak services and applies workarounds so they run in compose without manual overrides.
+dekube transform that detects Bitnami Redis, PostgreSQL, and Keycloak services and applies workarounds so they run in compose without manual overrides.
 
 ## Why
 
-Bitnami charts wrap standard images in custom entrypoints, init containers, and volume conventions that assume a full Kubernetes environment. In compose, these assumptions break: entrypoint chains fail, volume paths don't line up, Secret file mounts don't exist. The workarounds are well-known and documented in [common charts](https://helmfile2compose.github.io/maintainer/known-workarounds/common-charts/) — this transform applies them automatically.
+Bitnami charts wrap standard images in custom entrypoints, init containers, and volume conventions that assume a full Kubernetes environment. In compose, these assumptions break: entrypoint chains fail, volume paths don't line up, Secret file mounts don't exist. The workarounds are well-known and documented in [common charts](https://docs.dekube.io/maintainer/known-workarounds/common-charts/) — this transform applies them automatically.
 
 ## What it does
 
@@ -38,7 +38,7 @@ If a service has a manual `overrides:` entry in `helmfile2compose.yaml`, the tra
 ## Install
 
 ```bash
-python3 h2c-manager.py bitnami
+python3 dekube-manager.py bitnami
 ```
 
 Or add to `helmfile2compose.yaml`:
@@ -53,12 +53,12 @@ depends:
 The transform is loaded automatically via `--extensions-dir`. No configuration needed.
 
 ```bash
-# Via h2c-manager run mode
-python3 h2c-manager.py run -e compose
+# Via dekube-manager run mode
+python3 dekube-manager.py run -e compose
 
 # Manual
 python3 helmfile2compose.py --from-dir /tmp/rendered \
-  --extensions-dir .h2c/extensions --output-dir .
+  --extensions-dir .dekube/extensions --output-dir .
 ```
 
 Verify it loaded: `Loaded transforms: BitnamiWorkarounds` appears on stderr.
