@@ -33,7 +33,7 @@ Every modification is logged to stderr for transparency.
 
 ## User overrides take precedence
 
-If a service has a manual `overrides:` entry in `helmfile2compose.yaml`, the transform skips it. You can always override per-service if the automatic fix doesn't fit your setup.
+If a service has a manual `overrides:` entry in `dekube.yaml`, the transform skips it. You can always override per-service if the automatic fix doesn't fit your setup.
 
 ## Install
 
@@ -41,7 +41,7 @@ If a service has a manual `overrides:` entry in `helmfile2compose.yaml`, the tra
 python3 dekube-manager.py bitnami
 ```
 
-Or add to `helmfile2compose.yaml`:
+Or add to `dekube.yaml`:
 
 ```yaml
 depends:
