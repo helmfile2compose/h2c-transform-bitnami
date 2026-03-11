@@ -1,4 +1,4 @@
-"""bitnami — h2c transform.
+"""bitnami — dekube transform.
 
 Detects Bitnami Redis, PostgreSQL, and Keycloak services and applies
 workarounds so they run in compose without manual overrides.
